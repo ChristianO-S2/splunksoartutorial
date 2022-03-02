@@ -61,17 +61,40 @@ def custom_function_1(action=None, success=None, container=None, results=None, h
     filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
     filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]
 
+    custom_function_1__inList = None
+
     ################################################################################
     ## Custom Code Start
     ################################################################################
-    for hash in filtered_artifacts_item_1_0:
-        success, message, matched_row_count = phantom.check_list(list_name='virus_total_cache', value=hash)# Write your custom code here...
-        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched_row_count))
+
+    success, message, matched_row_count = phantom.check_list(list_name='virus_total_cache', value=filtered_artifacts_item_1_0[0])# Write your custom code here...
+    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched_row_count))
+    custom_function_1__inList = success
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################
     ## Custom Code End
     ################################################################################
+
+    phantom.save_run_data(key='custom_function_1:inList', value=json.dumps(custom_function_1__inList))
+    decision_1(container=container)
+
+    return
+
+def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('decision_1() called')
+
+    # check for 'if' condition 1
+    matched = phantom.decision(
+        container=container,
+        conditions=[
+            ["custom_function_1:custom_function:inList", "==", True],
+        ])
+
+    # call connected blocks if condition 1 matched
+    if matched:
+        return
 
     return
 

@@ -194,29 +194,25 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        set_severity_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        custom_function_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
-    # call connected blocks for 'else' condition 2
-    set_severity_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-
     return
 
-def set_severity_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_severity_1() called')
+def custom_function_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('custom_function_3() called')
+    
+    id_value = container.get('id', None)
 
-    phantom.set_severity(container=container, severity="High")
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
 
-    container = phantom.get_container(container.get('id', None))
+    phantom.set_severity(id_value, "High")# Write your custom code here...
 
-    return
-
-def set_severity_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_severity_2() called')
-
-    phantom.set_severity(container=container, severity="Low")
-
-    container = phantom.get_container(container.get('id', None))
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     return
 

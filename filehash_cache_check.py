@@ -54,7 +54,7 @@ def cf_local_listUpdater_1(action=None, success=None, container=None, results=No
     ################################################################################    
 
     # call custom function "local/listUpdater", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1', callback=join_filter_2)
+    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1')
 
     return
 
@@ -126,40 +126,6 @@ def file_reputation_1(action=None, success=None, container=None, results=None, h
 
     return
 
-def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_2() called')
-
-    # collect filtered artifact ids for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        action_results=results,
-        conditions=[
-            ["file_reputation_1:action_result.summary.malicious", ">=", 0],
-            ["custom_function_2:custom_function:malicious_count", ">=", 0],
-        ],
-        logical_operator='or',
-        name="filter_2:condition_1")
-
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_1 or matched_results_1:
-        pass
-
-    return
-
-def join_filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
-    phantom.debug('join_filter_2() called')
-    
-    # if the joined function has already been called, do nothing
-    if phantom.get_run_data(key='join_filter_2_called'):
-        return
-
-    # no callbacks to check, call connected block "filter_2"
-    phantom.save_run_data(key='join_filter_2_called', value='filter_2', auto=True)
-
-    filter_2(container=container, handle=handle)
-    
-    return
-
 def cf_local_getList_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_local_getList_1() called')
     
@@ -207,7 +173,23 @@ def custom_function_2(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.save_run_data(key='custom_function_2:malicious_count', value=json.dumps(custom_function_2__malicious_count))
-    join_filter_2(container=container)
+    decision_3(container=container)
+
+    return
+
+def decision_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('decision_3() called')
+
+    # check for 'if' condition 1
+    matched = phantom.decision(
+        container=container,
+        conditions=[
+            ["custom_function_2:custom_function:malicious_count", ">=", 0],
+        ])
+
+    # call connected blocks if condition 1 matched
+    if matched:
+        return
 
     return
 

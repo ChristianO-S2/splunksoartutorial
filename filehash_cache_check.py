@@ -96,6 +96,30 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
     if matched:
         return
 
+    # call connected blocks for 'else' condition 2
+    file_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+
+    return
+
+def file_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('file_reputation_1() called')
+
+    # collect data for 'file_reputation_1' call
+    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash', 'filtered-data:filter_1:condition_1:artifact:*.id'])
+
+    parameters = []
+    
+    # build parameters list for 'file_reputation_1' call
+    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
+        if filtered_artifacts_item_1[0]:
+            parameters.append({
+                'hash': filtered_artifacts_item_1[0],
+                # context (artifact id) is added to associate results with the artifact
+                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+            })
+
+    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], name="file_reputation_1")
+
     return
 
 def on_finish(container, summary):

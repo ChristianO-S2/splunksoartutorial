@@ -165,7 +165,7 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
     matched = phantom.decision(
         container=container,
         conditions=[
-            ["custom_function_2:custom_function:malicious_count", ">=", 1],
+            ["custom_function_2:custom_function:malicious_count", ">", 0],
         ])
 
     # call connected blocks if condition 1 matched
@@ -222,7 +222,7 @@ def decision_4(action=None, success=None, container=None, results=None, handle=N
         container=container,
         action_results=results,
         conditions=[
-            ["file_reputation_1:action_result.summary.malicious", ">=", 1],
+            ["file_reputation_1:action_result.summary.malicious", ">", 0],
         ])
 
     # call connected blocks if condition 1 matched

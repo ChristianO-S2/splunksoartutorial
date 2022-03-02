@@ -208,7 +208,7 @@ def custom_function_3(action=None, success=None, container=None, results=None, h
     ## Custom Code Start
     ################################################################################
 
-    phantom.set_severity(severity="High")# Write your custom code here...
+    phantom.set_severity(container, "High")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End

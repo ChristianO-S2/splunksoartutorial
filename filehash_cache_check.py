@@ -164,9 +164,7 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
         container=container,
         conditions=[
             ["custom_function_2:custom_function:malicious_count", ">=", 1],
-            ["file_reputation_1:action_result.summary.malicious", ">=", 1],
-        ],
-        logical_operator='or')
+        ])
 
     # call connected blocks if condition 1 matched
     if matched:

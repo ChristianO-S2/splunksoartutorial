@@ -33,13 +33,16 @@ def cf_local_listUpdater_1(action=None, success=None, container=None, results=No
     phantom.debug('cf_local_listUpdater_1() called')
     
     filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
+    action_results_data_0 = phantom.collect2(container=container, datapath=['file_reputation_1:action_result.summary.malicious', 'file_reputation_1:action_result.parameter.context.artifact_id'], action_results=results )
 
     parameters = []
 
     for item0 in filtered_artifacts_data_0:
-        parameters.append({
-            'hash': item0[0],
-        })
+        for item1 in action_results_data_0:
+            parameters.append({
+                'hash': item0[0],
+                'malicious_count': item1[0],
+            })
     ################################################################################
     ## Custom Code Start
     ################################################################################
@@ -118,7 +121,7 @@ def file_reputation_1(action=None, success=None, container=None, results=None, h
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
 
-    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], name="file_reputation_1")
+    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=cf_local_listUpdater_1, name="file_reputation_1")
 
     return
 

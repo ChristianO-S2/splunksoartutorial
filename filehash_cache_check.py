@@ -202,13 +202,13 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
 def custom_function_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('custom_function_3() called')
     
-    id_value = container.get('id', None)
+    input_parameter_0 = ""
 
     ################################################################################
     ## Custom Code Start
     ################################################################################
 
-    phantom.set_severity(id_value[0], "High")# Write your custom code here...
+    phantom.set_severity(severity="High")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End

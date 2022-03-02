@@ -54,7 +54,7 @@ def cf_local_listUpdater_1(action=None, success=None, container=None, results=No
     ################################################################################    
 
     # call custom function "local/listUpdater", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1', callback=join_decision_3)
+    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1')
 
     return
 
@@ -122,7 +122,15 @@ def file_reputation_1(action=None, success=None, container=None, results=None, h
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
 
-    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=cf_local_listUpdater_1, name="file_reputation_1")
+    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=file_reputation_1_callback, name="file_reputation_1")
+
+    return
+
+def file_reputation_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('file_reputation_1_callback() called')
+    
+    cf_local_listUpdater_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    join_decision_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
 
     return
 
@@ -191,7 +199,9 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
         action_results=results,
         conditions=[
             ["custom_function_2:custom_function:malicious_count", ">=", 1],
-        ])
+            ["file_reputation_1:action_result.summary.malicious", ">=", 1],
+        ],
+        logical_operator='or')
 
     # call connected blocks if condition 1 matched
     if matched:

@@ -25,7 +25,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        cf_local_listUpdater_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        custom_function_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -52,6 +52,25 @@ def cf_local_listUpdater_1(action=None, success=None, container=None, results=No
 
     # call custom function "local/listUpdater", returns the custom_function_run_id
     phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1')
+
+    return
+
+def custom_function_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('custom_function_1() called')
+    
+    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
+    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    success, message, matched_row_count = phantom.check_list(list_name='virus_total_cache', value=filtered_artifacts_item_1_0)# Write your custom code here...
+    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched_row_count))
+    ################################################################################
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     return
 

@@ -54,7 +54,7 @@ def cf_local_listUpdater_1(action=None, success=None, container=None, results=No
     ################################################################################    
 
     # call custom function "local/listUpdater", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1')
+    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1', callback=decision_4)
 
     return
 
@@ -122,41 +122,7 @@ def file_reputation_1(action=None, success=None, container=None, results=None, h
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
 
-    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=file_reputation_1_callback, name="file_reputation_1")
-
-    return
-
-def file_reputation_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
-    phantom.debug('file_reputation_1_callback() called')
-    
-    cf_local_listUpdater_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-    join_decision_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-
-    return
-
-def cf_local_getList_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('cf_local_getList_1() called')
-    
-    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
-
-    parameters = []
-
-    for item0 in filtered_artifacts_data_0:
-        parameters.append({
-            'hash': item0[0],
-        })
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################    
-
-    # call custom function "local/getList", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/getList', parameters=parameters, name='cf_local_getList_1')
+    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=cf_local_listUpdater_1, name="file_reputation_1")
 
     return
 
@@ -186,7 +152,7 @@ def custom_function_2(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.save_run_data(key='custom_function_2:malicious_count', value=json.dumps(custom_function_2__malicious_count))
-    join_decision_3(container=container)
+    decision_3(container=container)
 
     return
 
@@ -196,7 +162,6 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
     # check for 'if' condition 1
     matched = phantom.decision(
         container=container,
-        action_results=results,
         conditions=[
             ["custom_function_2:custom_function:malicious_count", ">=", 1],
             ["file_reputation_1:action_result.summary.malicious", ">=", 1],
@@ -211,20 +176,6 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
     # call connected blocks for 'else' condition 2
     custom_function_4(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
 
-    return
-
-def join_decision_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
-    phantom.debug('join_decision_3() called')
-    
-    # if the joined function has already been called, do nothing
-    if phantom.get_run_data(key='join_decision_3_called'):
-        return
-
-    # no callbacks to check, call connected block "decision_3"
-    phantom.save_run_data(key='join_decision_3_called', value='decision_3', auto=True)
-
-    decision_3(container=container, handle=handle)
-    
     return
 
 def custom_function_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
@@ -247,6 +198,63 @@ def custom_function_3(action=None, success=None, container=None, results=None, h
 
 def custom_function_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('custom_function_4() called')
+    
+    input_parameter_0 = ""
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    phantom.set_severity(container, "Low")
+    phantom.pin(container=container, pin_style='blue', data="no malicious hash", pin_type="card")# Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    return
+
+def decision_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('decision_4() called')
+
+    # check for 'if' condition 1
+    matched = phantom.decision(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["file_reputation_1:action_result.summary.malicious", ">=", 1],
+        ])
+
+    # call connected blocks if condition 1 matched
+    if matched:
+        custom_function_5(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        return
+
+    # call connected blocks for 'else' condition 2
+    custom_function_6(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+
+    return
+
+def custom_function_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('custom_function_5() called')
+    
+    input_parameter_0 = ""
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    phantom.set_severity(container, "High")
+    phantom.pin(container=container, pin_style='red', data="malicious hash found", pin_type="card")# Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    return
+
+def custom_function_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('custom_function_6() called')
     
     input_parameter_0 = ""
 

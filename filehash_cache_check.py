@@ -54,7 +54,7 @@ def cf_local_listUpdater_1(action=None, success=None, container=None, results=No
     ################################################################################    
 
     # call custom function "local/listUpdater", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1')
+    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='cf_local_listUpdater_1', callback=join_filter_2)
 
     return
 
@@ -97,6 +97,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
+        cf_local_getList_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # call connected blocks for 'else' condition 2
@@ -122,6 +123,63 @@ def file_reputation_1(action=None, success=None, container=None, results=None, h
             })
 
     phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=cf_local_listUpdater_1, name="file_reputation_1")
+
+    return
+
+def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('filter_2() called')
+
+    # collect filtered artifact ids for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        action_results=results,
+        conditions=[
+            ["file_reputation_1:action_result.summary.malicious", ">=", 0],
+            ["cf_local_getList_1:custom_function_result.data.malicious_count", ">=", 0],
+        ],
+        logical_operator='or',
+        name="filter_2:condition_1")
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        pass
+
+    return
+
+def join_filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('join_filter_2() called')
+
+    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
+    if phantom.completed(custom_function_names=['cf_local_listUpdater_1', 'cf_local_getList_1']):
+        
+        # call connected block "filter_2"
+        filter_2(container=container, handle=handle)
+    
+    return
+
+def cf_local_getList_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('cf_local_getList_1() called')
+    
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
+
+    parameters = []
+
+    for item0 in filtered_artifacts_data_0:
+        parameters.append({
+            'hash': item0[0],
+        })
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################    
+
+    # call custom function "local/getList", returns the custom_function_run_id
+    phantom.custom_function(custom_function='local/getList', parameters=parameters, name='cf_local_getList_1', callback=join_filter_2)
 
     return
 

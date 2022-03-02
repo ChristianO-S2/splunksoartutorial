@@ -212,7 +212,7 @@ def custom_function_3(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.set_severity(container, "High")
-    phantom.pin(container=container, pin_style='red', data="malicious hash found")# Write your custom code here...
+    phantom.pin(container=container, pin_style='red', data="malicious hash found", pin_type="card")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End

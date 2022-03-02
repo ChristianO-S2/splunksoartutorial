@@ -97,7 +97,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        cf_local_getList_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        custom_function_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # call connected blocks for 'else' condition 2
@@ -135,7 +135,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
         action_results=results,
         conditions=[
             ["file_reputation_1:action_result.summary.malicious", ">=", 0],
-            ["cf_local_getList_1:custom_function_result.data.malicious_count", ">=", 0],
+            ["custom_function_2:custom_function:malicious_count", ">=", 0],
         ],
         logical_operator='or',
         name="filter_2:condition_1")
@@ -148,12 +148,15 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 
 def join_filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
     phantom.debug('join_filter_2() called')
+    
+    # if the joined function has already been called, do nothing
+    if phantom.get_run_data(key='join_filter_2_called'):
+        return
 
-    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
-    if phantom.completed(custom_function_names=['cf_local_listUpdater_1', 'cf_local_getList_1']):
-        
-        # call connected block "filter_2"
-        filter_2(container=container, handle=handle)
+    # no callbacks to check, call connected block "filter_2"
+    phantom.save_run_data(key='join_filter_2_called', value='filter_2', auto=True)
+
+    filter_2(container=container, handle=handle)
     
     return
 
@@ -179,7 +182,32 @@ def cf_local_getList_1(action=None, success=None, container=None, results=None, 
     ################################################################################    
 
     # call custom function "local/getList", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/getList', parameters=parameters, name='cf_local_getList_1', callback=join_filter_2)
+    phantom.custom_function(custom_function='local/getList', parameters=parameters, name='cf_local_getList_1')
+
+    return
+
+def custom_function_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('custom_function_2() called')
+    
+    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
+    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]
+
+    custom_function_2__malicious_count = None
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    success, message, malicious_count = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0], column_index=2)
+    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...
+    custom_function_2__malicious_count = malicious_count
+    ####################################################
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.save_run_data(key='custom_function_2:malicious_count', value=json.dumps(custom_function_2__malicious_count))
+    join_filter_2(container=container)
 
     return
 

@@ -64,9 +64,10 @@ def custom_function_1(action=None, success=None, container=None, results=None, h
     ################################################################################
     ## Custom Code Start
     ################################################################################
-
-    success, message, matched_row_count = phantom.check_list(list_name='virus_total_cache', value=filtered_artifacts_item_1_0)# Write your custom code here...
-    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched_row_count))
+    for hash in filtered_artifacts_item_1_0:
+        success, message, matched_row_count = phantom.check_list(list_name='virus_total_cache', value=hash)# Write your custom code here...
+        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched_row_count))
+    ################################################################################
     ################################################################################
     ################################################################################
     ## Custom Code End

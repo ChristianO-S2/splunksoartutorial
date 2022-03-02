@@ -228,7 +228,8 @@ def custom_function_4(action=None, success=None, container=None, results=None, h
     ## Custom Code Start
     ################################################################################
 
-    phantom.set_severity(container, "Low")# Write your custom code here...
+    phantom.set_severity(container, "Low")
+    phantom.pin(container=container, pin_style='blue', message="no malicious hash")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End

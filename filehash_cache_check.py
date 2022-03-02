@@ -164,9 +164,10 @@ def custom_function_2(action=None, success=None, container=None, results=None, h
     ## Custom Code Start
     ################################################################################
 
-    success, message, malicious_count = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0], column_index=1)
+    success, message, malicious_count = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
     phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...
     custom_function_2__malicious_count = malicious_count
+    ####################################################
     ####################################################
     ####################################################
     ################################################################################

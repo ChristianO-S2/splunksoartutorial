@@ -197,6 +197,9 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
         custom_function_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
+    # call connected blocks for 'else' condition 2
+    custom_function_4(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+
     return
 
 def custom_function_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
@@ -209,6 +212,23 @@ def custom_function_3(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.set_severity(container, "High")# Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    return
+
+def custom_function_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('custom_function_4() called')
+    
+    input_parameter_0 = ""
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    phantom.set_severity(container, "Low")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End

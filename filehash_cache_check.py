@@ -71,7 +71,9 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
     import datetime
     
-    seven_days_ago = datetime.timedelta(days=7)
+    current_time = datetime.datetime.now()
+    seven_days = datetime.timedelta(days=7)
+    seven_days_ago = current_time - seven_days
     
     success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
     lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], "%Y-%m-%d %H:%M:%S.%f")
@@ -89,6 +91,7 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     phantom.debug(grab)
     phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
     check_list__inList = grab
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################

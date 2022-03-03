@@ -69,10 +69,27 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
     ## Custom Code Start
     ################################################################################
-
-    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])# Write your custom code here...
+    import datetime
+    
+    seven_days_ago = datetime.timedelta(days=7)
+    
+    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
+    lookup_date = matched.get('matches')[0].get('value')[1]
+    
+    if lookup_date > seven_days_ago:
+        fresh = True
+    else:
+        fresh = False# Write your custom code here...
+    
+    if success and fresh:
+        grab = True
+    else:
+        grab = False
     phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
-    check_list__inList = success
+    check_list__inList = grab
+    ################################################################################
+    ################################################################################
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################
@@ -83,7 +100,6 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
 
     phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))
-    decision_1(container=container)
 
     return
 

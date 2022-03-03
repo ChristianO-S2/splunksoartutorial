@@ -54,7 +54,7 @@ def update_custom_list(action=None, success=None, container=None, results=None, 
     ################################################################################    
 
     # call custom function "local/listUpdater", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='update_custom_list', callback=decision_4)
+    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='update_custom_list')
 
     return
 
@@ -148,7 +148,7 @@ def file_reputation_1(action=None, success=None, container=None, results=None, h
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
 
-    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=update_custom_list, name="file_reputation_1")
+    phantom.act(action="file reputation", parameters=parameters, assets=['virustotal'], callback=update_cache, name="file_reputation_1")
 
     return
 
@@ -301,6 +301,34 @@ def severity_low_pin_live(action=None, success=None, container=None, results=Non
     ################################################################################
     ## Custom Code End
     ################################################################################
+
+    return
+
+def update_cache(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('update_cache() called')
+    
+    results_data_1 = phantom.collect2(container=container, datapath=['file_reputation_1:action_result.summary.malicious'], action_results=results)
+    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
+    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]
+    results_item_1_0 = [item[0] for item in results_data_1]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+    import datetime
+    
+    success_1, message_1, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
+    
+    if success_1:
+        success_3, message_3 = phantom.delete_from_list(list_name="virus_total_cache", value=filtered_artifacts_item_1_0[0], remove_row=True)
+        success, message = phantom.add_list(list_name="virus_total_cache", values=[matches.get('matches')[0].get('value')[0], datetime.datetime.now(), results_item_1_0[0], int(matches.get('matches')[0].get('value')[3]) + 1])
+    else:
+        success_2, message_2 = phantom.add_list(list_name="virus_total_cache", values=[filtered_artifacts_item_1_0[0], datetime.datetime.now(), results_item_1_0[0], 1])# Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+    decision_4(container=container)
 
     return
 

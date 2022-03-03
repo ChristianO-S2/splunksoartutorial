@@ -75,6 +75,7 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     
     success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
     lookup_date = matched.get('matches')[0].get('value')[1]
+    phantom.debug(lookup_date)
     
     if lookup_date > seven_days_ago:
         fresh = True
@@ -87,6 +88,7 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
         grab = False
     phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
     check_list__inList = grab
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################

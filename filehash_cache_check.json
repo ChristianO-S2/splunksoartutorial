@@ -7,7 +7,6 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "ae33b539728fd78c31378310b3d036d40292a6e7",
             "joint": {
                 "cells": [
                     {
@@ -2740,184 +2739,6 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".functionBlock": {
-                                "text": "check list"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    \n    if success:\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 11,
-                        "custom_callback": "",
-                        "custom_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    \n    if success:\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "check list",
-                        "description": "",
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "49a25586-be34-4421-ab9a-8b034a8497a4",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "legacy": true,
-                        "line_end": 114,
-                        "line_start": 61,
-                        "message": "Configuring now",
-                        "name": "custom function",
-                        "notes": "",
-                        "number": 1,
-                        "order": 4,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "outputVariables": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "inList"
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "filtered-data:filter_1:condition_1:artifact:*.cef.fileHash"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 400,
-                            "y": 80
-                        },
-                        "previous_function": "",
-                        "previous_name": "check_list",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "custom function",
-                        "status": "deprecating",
-                        "title": "custom function",
-                        "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    \n    if success:\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
-                        "warn": false,
-                        "z": 157
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
                                 "stroke": "#637282",
                                 "transform": "rotate(45 30 70)"
                             },
@@ -3878,6 +3699,184 @@
                         "userGeneratedCode": "\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n",
                         "warn": false,
                         "z": 169
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".functionBlock": {
+                                "text": "check list"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 1
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    \n    if success:\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 11,
+                        "custom_callback": "",
+                        "custom_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    \n    if success:\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "check list",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "49a25586-be34-4421-ab9a-8b034a8497a4",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "legacy": true,
+                        "line_end": 114,
+                        "line_start": 61,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "",
+                        "number": 1,
+                        "order": 4,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "inList"
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "filtered-data:filter_1:condition_1:artifact:*.cef.fileHash"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 400,
+                            "y": 80
+                        },
+                        "previous_function": "",
+                        "previous_name": "check_list",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "deprecating",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    \n    if success:\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
+                        "warn": false,
+                        "z": 170
                     }
                 ]
             },

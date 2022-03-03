@@ -29,35 +29,6 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
-def update_custom_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_custom_list() called')
-    
-    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])
-    action_results_data_0 = phantom.collect2(container=container, datapath=['file_reputation_1:action_result.summary.malicious', 'file_reputation_1:action_result.parameter.context.artifact_id'], action_results=results )
-
-    parameters = []
-
-    for item0 in filtered_artifacts_data_0:
-        for item1 in action_results_data_0:
-            parameters.append({
-                'hash': item0[0],
-                'malicious_count': item1[0],
-            })
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################    
-
-    # call custom function "local/listUpdater", returns the custom_function_run_id
-    phantom.custom_function(custom_function='local/listUpdater', parameters=parameters, name='update_custom_list')
-
-    return
-
 def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('check_list() called')
     

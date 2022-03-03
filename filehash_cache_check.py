@@ -86,8 +86,8 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     else:
         grab = False# Write your custom code here...
     
-    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
     check_list__inList = grab
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################
@@ -167,13 +167,14 @@ def grab_from_cache(action=None, success=None, container=None, results=None, han
     ################################################################################
 
     success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
-    if success:
+    if matches.get('matches'):
         malicious_count = matches.get('matches')[0].get('value')[2]
         success_2, message_2 = phantom.delete_from_list(list_name="virus_total_cache", value=filtered_artifacts_item_1_0[0], remove_row=True)
         success_1, message_1 = phantom.add_list(list_name="virus_total_cache", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])
         
     phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...
     grab_from_cache__malicious_count = malicious_count
+    ####################################################
     ####################################################
     ####################################################
     ####################################################
@@ -321,7 +322,7 @@ def update_cache(action=None, success=None, container=None, results=None, handle
     
     success_1, message_1, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
     
-    if success_1:
+    if matches.get('matches'):
         success_3, message_3 = phantom.delete_from_list(list_name="virus_total_cache", value=filtered_artifacts_item_1_0[0], remove_row=True)
         success, message = phantom.add_list(list_name="virus_total_cache", values=[matches.get('matches')[0].get('value')[0], datetime.datetime.now(), results_item_1_0[0], int(matches.get('matches')[0].get('value')[3]) + 1])
     else:

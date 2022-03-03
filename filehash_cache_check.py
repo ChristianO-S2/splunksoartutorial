@@ -212,7 +212,7 @@ def severity_high_pin_cached(action=None, success=None, container=None, results=
     ################################################################################
 
     phantom.set_severity(container, "High")
-    phantom.pin(container=container, pin_style='red', data="malicious hash found", pin_type="card")# Write your custom code here...
+    phantom.pin(container=container, pin_style='red', data="malicious file found", pin_type="card")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End
@@ -230,7 +230,7 @@ def severity_low_pin_cached(action=None, success=None, container=None, results=N
     ################################################################################
 
     phantom.set_severity(container, "Low")
-    phantom.pin(container=container, pin_style='blue', data="no malicious hash", pin_type="card")# Write your custom code here...
+    phantom.pin(container=container, pin_style='blue', data="file is known good", pin_type="card")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End
@@ -269,7 +269,7 @@ def severity_high_pin_live(action=None, success=None, container=None, results=No
     ################################################################################
 
     phantom.set_severity(container, "High")
-    phantom.pin(container=container, pin_style='red', data="malicious hash found", pin_type="card")# Write your custom code here...
+    phantom.pin(container=container, pin_style='red', data="malicious file found", pin_type="card")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End
@@ -287,7 +287,7 @@ def severity_low_pin_live(action=None, success=None, container=None, results=Non
     ################################################################################
 
     phantom.set_severity(container, "Low")
-    phantom.pin(container=container, pin_style='blue', data="no malicious hash", pin_type="card")# Write your custom code here...
+    phantom.pin(container=container, pin_style='blue', data="file is known good", pin_type="card")# Write your custom code here...
 
     ################################################################################
     ## Custom Code End

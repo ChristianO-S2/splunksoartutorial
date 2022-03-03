@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "a00bf475b00eb5d74591a93df6960c6bf5590f27",
+            "hash": "548b7ac7af881dcf4b29c4c559fe189c0c1a76cc",
             "joint": {
                 "cells": [
                     {
@@ -2015,540 +2015,6 @@
                                 "fill": "#3C444D"
                             },
                             ".functionBlock": {
-                                "text": "severity high pin live"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def severity_high_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_live() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious hash found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "update custom list",
-                        "connection_type": "action",
-                        "customCodeEndLineOffset": 4,
-                        "customCodeStartLine": 8,
-                        "custom_callback": "",
-                        "custom_code": "def severity_high_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('custom_function_5() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious hash found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "severity high pin live",
-                        "description": "",
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "866d35c2-9de7-415d-b478-ff1f4da3bc64",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "legacy": true,
-                        "line_end": 280,
-                        "line_start": 262,
-                        "message": "Configuring now",
-                        "name": "custom function",
-                        "notes": "",
-                        "number": 5,
-                        "order": 12,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "outputVariables": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1440,
-                            "y": 180
-                        },
-                        "previous_function": "",
-                        "previous_name": "severity_high_pin_live",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "custom function",
-                        "status": "deprecating",
-                        "title": "custom function",
-                        "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious hash found\", pin_type=\"card\")# Write your custom code here...\n\n",
-                        "warn": false,
-                        "z": 115
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".functionBlock": {
-                                "text": "severity low pin cached"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def severity_low_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_low_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"no malicious hash\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "customCodeEndLineOffset": 4,
-                        "customCodeStartLine": 8,
-                        "custom_callback": "",
-                        "custom_code": "def severity_low_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('custom_function_4() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"no malicious hash\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "severity low pin cached",
-                        "description": "",
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "710f7338-520b-4d15-a608-6ca535caa770",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "legacy": true,
-                        "line_end": 241,
-                        "line_start": 223,
-                        "message": "Configuring now",
-                        "name": "custom function",
-                        "notes": "",
-                        "number": 4,
-                        "order": 10,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "outputVariables": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1360,
-                            "y": 0
-                        },
-                        "previous_function": "",
-                        "previous_name": "severity_low_pin_cached",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "custom function",
-                        "status": "deprecating",
-                        "title": "custom function",
-                        "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"no malicious hash\", pin_type=\"card\")# Write your custom code here...\n\n",
-                        "warn": false,
-                        "z": 117
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".functionBlock": {
-                                "text": "severity low pin live"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def severity_low_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_low_pin_live() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"no malicious hash\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "update custom list",
-                        "connection_type": "action",
-                        "customCodeEndLineOffset": 4,
-                        "customCodeStartLine": 8,
-                        "custom_callback": "",
-                        "custom_code": "def severity_low_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('custom_function_6() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"no malicious hash\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "severity low pin live",
-                        "description": "",
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "e49c4142-5c8e-4018-acb1-094644c0b6a0",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "legacy": true,
-                        "line_end": 298,
-                        "line_start": 280,
-                        "message": "Configuring now",
-                        "name": "custom function",
-                        "notes": "",
-                        "number": 6,
-                        "order": 13,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "outputVariables": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1380,
-                            "y": 340
-                        },
-                        "previous_function": "",
-                        "previous_name": "severity_low_pin_live",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "custom function",
-                        "status": "deprecating",
-                        "title": "custom function",
-                        "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"no malicious hash\", pin_type=\"card\")# Write your custom code here...\n\n",
-                        "warn": false,
-                        "z": 118
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".functionBlock": {
                                 "text": "grab from cache"
                             },
                             ".inPorts>.port-in": {
@@ -2956,7 +2422,7 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "block"
+                                "display": "none"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -3529,6 +2995,362 @@
                                 "fill": "#3C444D"
                             },
                             ".functionBlock": {
+                                "text": "severity low pin cached"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 1
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def severity_low_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_low_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "customCodeEndLineOffset": 4,
+                        "customCodeStartLine": 8,
+                        "custom_callback": "",
+                        "custom_code": "def severity_low_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_low_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "severity low pin cached",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "710f7338-520b-4d15-a608-6ca535caa770",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "legacy": true,
+                        "line_end": 241,
+                        "line_start": 223,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "",
+                        "number": 4,
+                        "order": 10,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1360,
+                            "y": 0
+                        },
+                        "previous_function": "",
+                        "previous_name": "severity_low_pin_cached",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "deprecating",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n",
+                        "warn": false,
+                        "z": 135
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".functionBlock": {
+                                "text": "severity low pin live"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 1
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def severity_low_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_low_pin_live() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "update custom list",
+                        "connection_type": "action",
+                        "customCodeEndLineOffset": 4,
+                        "customCodeStartLine": 8,
+                        "custom_callback": "",
+                        "custom_code": "def severity_low_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_low_pin_live() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "severity low pin live",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "e49c4142-5c8e-4018-acb1-094644c0b6a0",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "legacy": true,
+                        "line_end": 298,
+                        "line_start": 280,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "",
+                        "number": 6,
+                        "order": 13,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1380,
+                            "y": 340
+                        },
+                        "previous_function": "",
+                        "previous_name": "severity_low_pin_live",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "deprecating",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n",
+                        "warn": false,
+                        "z": 136
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".functionBlock": {
                                 "text": "severity high pin cached"
                             },
                             ".inPorts>.port-in": {
@@ -3573,7 +3395,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious hash found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "block_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
@@ -3583,7 +3405,7 @@
                         "customCodeEndLineOffset": 4,
                         "customCodeStartLine": 8,
                         "custom_callback": "",
-                        "custom_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('custom_function_3() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious hash found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "custom_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
                         "custom_join": "",
                         "custom_name": "severity high pin cached",
                         "description": "",
@@ -3691,9 +3513,187 @@
                         "status": "deprecating",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious hash found\", pin_type=\"card\")# Write your custom code here...\n\n",
+                        "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n",
                         "warn": false,
-                        "z": 134
+                        "z": 137
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".functionBlock": {
+                                "text": "severity high pin live"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 1
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def severity_high_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_live() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "update custom list",
+                        "connection_type": "action",
+                        "customCodeEndLineOffset": 4,
+                        "customCodeStartLine": 8,
+                        "custom_callback": "",
+                        "custom_code": "def severity_high_pin_live(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_live() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "severity high pin live",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "866d35c2-9de7-415d-b478-ff1f4da3bc64",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "legacy": true,
+                        "line_end": 280,
+                        "line_start": 262,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "",
+                        "number": 5,
+                        "order": 12,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1440,
+                            "y": 180
+                        },
+                        "previous_function": "",
+                        "previous_name": "severity_high_pin_live",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "deprecating",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n",
+                        "warn": false,
+                        "z": 138
                     }
                 ]
             },
@@ -3706,7 +3706,7 @@
         "schema": "4",
         "version": "5.1.0.70187"
     },
-    "create_time": "2022-03-03T02:48:48.955151+00:00",
+    "create_time": "2022-03-03T02:52:38.015533+00:00",
     "draft_mode": false,
     "labels": [
         "*"

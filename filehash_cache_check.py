@@ -86,9 +86,9 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     else:
         grab = False# Write your custom code here...
     
-    phantom.debug(grab)
     phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
     check_list__inList = grab
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################
@@ -107,6 +107,7 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
 
     phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))
+    decision_1(container=container)
 
     return
 

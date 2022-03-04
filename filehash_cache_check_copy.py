@@ -55,14 +55,15 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
             lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], "%Y-%m-%d %H:%M:%S.%f")
     
             if lookup_date > seven_days_ago:
-                output['grab'].append(True)
+                output['grab'].append('True')
             else:
-                output['grab'].append(False)
+                output['grab'].append('False')
         else:
-            output['grab'] = False# Write your custom code here...
+            output['grab'].append('False')# Write your custom code here...
     
     check_list__inList = output
     phantom.debug(output)
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################

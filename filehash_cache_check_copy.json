@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "964f7d375507a4760f2a779c8a1c594b1e911289",
+            "hash": "c8b6aa1497c5eeca3908567d1cf3f886fe665bd5",
             "joint": {
                 "cells": [
                     {
@@ -217,8 +217,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 328,
-                        "line_start": 315,
+                        "line_end": 325,
+                        "line_start": 312,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -371,86 +371,6 @@
                         },
                         "type": "link",
                         "z": 8
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "20efb1ed-aa2f-4783-b3a3-e97d816040f3",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "9554e811-25c1-4cfc-9906-956f167e4e71",
-                            "port": "out-2",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(2) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "41e832a5-1d63-4648-ad72-7fbbb05be153",
-                            "selector": ".port-body[type=\"input\"]"
-                        },
-                        "type": "link",
-                        "z": 14
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "bcf15596-1979-408b-9039-13e82b1aed77",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "9554e811-25c1-4cfc-9906-956f167e4e71",
-                            "port": "out-1",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "eba40db1-7787-4f10-b530-a95f51249b6d",
-                            "selector": ".port-body[type=\"input\"]"
-                        },
-                        "type": "link",
-                        "z": 42
                     },
                     {
                         "attrs": {
@@ -706,200 +626,6 @@
                                 }
                             },
                             ".number": {
-                                "text": 1
-                            },
-                            ".outPorts>.port-0": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                },
-                                "ref-x": 83,
-                                "ref-y": 40
-                            },
-                            ".outPorts>.port-0>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            ".outPorts>.port-1": {
-                                "port": {
-                                    "id": "out-2",
-                                    "type": "out"
-                                },
-                                "ref-x": 41,
-                                "ref-y": 82
-                            },
-                            ".outPorts>.port-1>.port-body": {
-                                "port": {
-                                    "id": "out-2",
-                                    "type": "out"
-                                }
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            },
-                            "g.notes image": {
-                                "opacity": 1,
-                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
-                            }
-                        },
-                        "block_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('decision_1() called')\n\n    # check for 'if' condition 1\n    matched = phantom.decision(\n        container=container,\n        conditions=[\n            [\"check_list:custom_function:inList\", \"==\", True],\n        ])\n\n    # call connected blocks if condition 1 matched\n    if matched:\n        grab_from_cache(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n        return\n\n    # call connected blocks for 'else' condition 2\n    file_reputation(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": false,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "hasElse": true,
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "9554e811-25c1-4cfc-9906-956f167e4e71",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 113,
-                        "line_start": 93,
-                        "name": "decision",
-                        "notes": "Blue - if hash was found in cache, then grab it\n\nPurple -  else, make a request to virus total and update the cache ",
-                        "number": 1,
-                        "order": 4,
-                        "outPorts": [
-                            "out-1",
-                            "out-2"
-                        ],
-                        "outputs": [
-                            {
-                                "conditions": [
-                                    {
-                                        "comparison": "==",
-                                        "data_type": "",
-                                        "param": "check_list:custom_function:inList",
-                                        "value": "True"
-                                    }
-                                ],
-                                "display": "If",
-                                "logic": "and",
-                                "type": "if"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "comparison": "==",
-                                        "data_type": "",
-                                        "param": "",
-                                        "value": ""
-                                    }
-                                ],
-                                "display": "Else",
-                                "logic": "and",
-                                "type": "else"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 640,
-                            "y": 80
-                        },
-                        "previous_function": "",
-                        "previous_name": "decision_1",
-                        "show_number": true,
-                        "size": {
-                            "height": 82,
-                            "width": 82
-                        },
-                        "state": "decision",
-                        "status": "warn",
-                        "type": "coa.Decision",
-                        "warn": "",
-                        "z": 159
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#E6984E",
-                                "transform": "rotate(45 30 70)"
-                            },
-                            ".inPorts>.port-0>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".number": {
                                 "text": 4
                             },
                             ".outPorts>.port-0": {
@@ -971,8 +697,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 251,
-                        "line_start": 230,
+                        "line_end": 248,
+                        "line_start": 227,
                         "name": "decision",
                         "notes": "Blue - if the hash is malicious, change severity to high and pin a red card\n\nPurple - set severity to low and pin a blue card",
                         "number": 4,
@@ -1207,8 +933,8 @@
                             "file_reputation_1"
                         ],
                         "join_start": 216,
-                        "line_end": 194,
-                        "line_start": 174,
+                        "line_end": 191,
+                        "line_start": 171,
                         "name": "decision",
                         "notes": "Blue - if the hash is malicious, change severity to high and pin a red card\n\nPurple - set severity to low and pin a blue card",
                         "number": 3,
@@ -1520,7 +1246,7 @@
                                 "text": "custom function"
                             },
                             "g.delete": {
-                                "display": "none"
+                                "display": "block"
                             },
                             "g.error": {
                                 "opacity": 1
@@ -1563,8 +1289,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 174,
-                        "line_start": 134,
+                        "line_end": 171,
+                        "line_start": 131,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Grabs custom list and pulls the malicious count field for given hash and updates lookup count.",
@@ -1745,8 +1471,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 315,
-                        "line_start": 287,
+                        "line_end": 312,
+                        "line_start": 284,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Grabs list and appends a new entry or updates old entry with new data",
@@ -1932,8 +1658,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 212,
-                        "line_start": 194,
+                        "line_end": 209,
+                        "line_start": 191,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to high and pins a red card to the container HUD",
@@ -2114,8 +1840,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 269,
-                        "line_start": 251,
+                        "line_end": 266,
+                        "line_start": 248,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to high and pins a red card to the container HUD",
@@ -2296,8 +2022,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 230,
-                        "line_start": 212,
+                        "line_end": 227,
+                        "line_start": 209,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to low and pins a blue card to the container HUD",
@@ -2478,8 +2204,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 287,
-                        "line_start": 269,
+                        "line_end": 284,
+                        "line_start": 266,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to low and pins a blue card to the container HUD",
@@ -3525,8 +3251,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 134,
-                        "line_start": 113,
+                        "line_end": 131,
+                        "line_start": 110,
                         "message": "Configuring now",
                         "name": "file reputation",
                         "notes": "file reputation check for given hash",
@@ -3669,14 +3395,14 @@
                                 "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
                             }
                         },
-                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'hash': [], 'grab':[]}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append(True)\n            else:\n                output['grab'].append(False)\n        else:\n            output['grab'] = False# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n\n    return",
+                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'hash': [], 'grab':[]}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append(True)\n            else:\n                output['grab'].append(False)\n        else:\n            output['grab'] = False# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
                         "connection_name": "",
                         "connection_type": "",
-                        "customCodeEndLineOffset": 6,
+                        "customCodeEndLineOffset": 7,
                         "customCodeStartLine": 11,
                         "custom_callback": "",
                         "custom_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'hash': [], 'grab':[]}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append(True)\n            else:\n                output['grab'].append(False)\n        else:\n            output['grab'] = False# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n\n    return",
@@ -3696,7 +3422,7 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 93,
+                        "line_end": 94,
                         "line_start": 32,
                         "message": "Configuring now",
                         "name": "custom function",
@@ -3790,6 +3516,240 @@
                         "userGeneratedCode": "    import datetime\n    \n    output = {'hash': [], 'grab':[]}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append(True)\n            else:\n                output['grab'].append(False)\n        else:\n            output['grab'] = False# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
                         "warn": false,
                         "z": 209
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "7f9875c0-c1e2-4d66-a05b-50aacc55b43d",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "49a25586-be34-4421-ab9a-8b034a8497a4",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "9554e811-25c1-4cfc-9906-956f167e4e71",
+                            "port": "in",
+                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 210
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#637282",
+                                "transform": "rotate(45 30 70)"
+                            },
+                            ".inPorts>.port-0>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".number": {
+                                "text": 1
+                            },
+                            ".outPorts>.port-0": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                },
+                                "ref-x": 83,
+                                "ref-y": 40
+                            },
+                            ".outPorts>.port-0>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".outPorts>.port-1": {
+                                "port": {
+                                    "id": "out-2",
+                                    "type": "out"
+                                },
+                                "ref-x": 41,
+                                "ref-y": 82
+                            },
+                            ".outPorts>.port-1>.port-body": {
+                                "port": {
+                                    "id": "out-2",
+                                    "type": "out"
+                                }
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
+                            }
+                        },
+                        "block_code": "def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('decision_1() called')\n\n    # check for 'if' condition 1\n    matched = phantom.decision(\n        container=container,\n        conditions=[\n            [\"check_list:custom_function:inList\", \"==\", True],\n        ])\n\n    # call connected blocks if condition 1 matched\n    if matched:\n        return\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": false,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "hasElse": true,
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "9554e811-25c1-4cfc-9906-956f167e4e71",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 110,
+                        "line_start": 94,
+                        "name": "decision",
+                        "notes": "Blue - if hash was found in cache, then grab it\n\nPurple -  else, make a request to virus total and update the cache ",
+                        "number": 1,
+                        "order": 4,
+                        "outPorts": [
+                            "out-1",
+                            "out-2"
+                        ],
+                        "outputs": [
+                            {
+                                "conditions": [
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "check_list:custom_function:inList",
+                                        "value": "True"
+                                    }
+                                ],
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 640,
+                            "y": 80
+                        },
+                        "previous_function": "",
+                        "previous_name": "decision_1",
+                        "show_number": true,
+                        "size": {
+                            "height": 82,
+                            "width": 82
+                        },
+                        "state": "decision",
+                        "status": "",
+                        "type": "coa.Decision",
+                        "warn": "",
+                        "z": 211
                     }
                 ]
             },
@@ -3802,7 +3762,7 @@
         "schema": "4",
         "version": "5.1.0.70187"
     },
-    "create_time": "2022-03-04T20:56:28.860362+00:00",
+    "create_time": "2022-03-04T20:57:07.897329+00:00",
     "draft_mode": false,
     "labels": [
         "*"

@@ -87,6 +87,7 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
 
     phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))
+    decision_1(container=container)
 
     return
 
@@ -102,11 +103,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        grab_from_cache(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
-
-    # call connected blocks for 'else' condition 2
-    file_reputation(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
 
     return
 

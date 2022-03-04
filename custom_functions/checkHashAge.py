@@ -16,7 +16,7 @@ def checkHashAge(hashList=None, **kwargs):
     
     for hash in hashList:
         outputs['hash'].append(hash)
-        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)
+        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash, trace=True)
         phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
         if matched.get('matches'):
             current_time = datetime.datetime.now()

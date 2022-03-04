@@ -89,7 +89,7 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
 
     phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))
-    decision_1(container=container)
+    filter_2(container=container)
 
     return
 
@@ -308,6 +308,23 @@ def update_cache(action=None, success=None, container=None, results=None, handle
     ## Custom Code End
     ################################################################################
     decision_4(container=container)
+
+    return
+
+def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('filter_2() called')
+
+    # collect filtered artifact ids for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["check_list:custom_function:inList.*.grab", "==", True],
+        ],
+        name="filter_2:condition_1")
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        pass
 
     return
 

@@ -45,7 +45,7 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     output = {'hash': [], 'grab':[]}
     
     for hash in filtered_artifacts_item_1_0:
-        output['hash'] = hash
+        output['hash'].append(hash)
         success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)
         phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
         if matched.get('matches'):
@@ -55,14 +55,15 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
             lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], "%Y-%m-%d %H:%M:%S.%f")
     
             if lookup_date > seven_days_ago:
-                output['grab'] = True
+                output['grab'].append(True)
             else:
-                output['grab'] = False
+                output['grab'].append(False)
         else:
             output['grab'] = False# Write your custom code here...
     
     check_list__inList = output
     phantom.debug(output)
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################

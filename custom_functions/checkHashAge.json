@@ -1,0 +1,31 @@
+{
+    "create_time": "2022-03-04T21:43:32.334689+00:00",
+    "custom_function_id": "dfab3646cc61deda805c6a7ff55685abdf4f8bc0",
+    "description": "",
+    "draft_mode": false,
+    "inputs": [
+        {
+            "contains_type": [
+                "hash"
+            ],
+            "description": "",
+            "input_type": "list",
+            "name": "hashList",
+            "placeholder": ""
+        }
+    ],
+    "outputs": [
+        {
+            "contains_type": [],
+            "data_path": "*.grab",
+            "description": ""
+        },
+        {
+            "contains_type": [],
+            "data_path": "*.hash",
+            "description": ""
+        }
+    ],
+    "platform_version": "5.1.0.70187",
+    "python_version": "3"
+}

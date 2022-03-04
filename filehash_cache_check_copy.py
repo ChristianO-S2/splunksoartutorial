@@ -99,7 +99,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
     matched = phantom.decision(
         container=container,
         conditions=[
-            ["check_list:custom_function:inList.grab", "==", True],
+            ["check_list:custom_function:inList", "==", True],
         ])
 
     # call connected blocks if condition 1 matched

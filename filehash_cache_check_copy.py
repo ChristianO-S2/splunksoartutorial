@@ -41,23 +41,29 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ## Custom Code Start
     ################################################################################
     import datetime
-
-    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])
-    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
-    if matched.get('matches'):
-        current_time = datetime.datetime.now()
-        seven_days = datetime.timedelta(days=7)
-        seven_days_ago = current_time - seven_days
-        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], "%Y-%m-%d %H:%M:%S.%f")
     
-        if lookup_date > seven_days_ago:
-            grab = True
+    output = {'hash': [], 'grab':[]}
+    
+    for hash in filtered_artifacts_item_1_0:
+        output['hash'] = hash
+        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)
+        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
+        if matched.get('matches'):
+            current_time = datetime.datetime.now()
+            seven_days = datetime.timedelta(days=7)
+            seven_days_ago = current_time - seven_days
+            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], "%Y-%m-%d %H:%M:%S.%f")
+    
+            if lookup_date > seven_days_ago:
+                output['grab'] = True
+            else:
+                output['grab'] = False
         else:
-            grab = False
-    else:
-        grab = False# Write your custom code here...
+            output['grab'] = False# Write your custom code here...
     
-    check_list__inList = grab
+    check_list__inList = output
+    phantom.debug(output)
+    ################################################################################
     ################################################################################
     ################################################################################
     ################################################################################
@@ -80,7 +86,6 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
 
     phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))
-    decision_1(container=container)
 
     return
 

@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "f09a598f167209850710087f0c7a13b81a353cf2",
+            "hash": "cf67acb8ac7da957801082828fee6566cbc0f8a7",
             "joint": {
                 "cells": [
                     {
@@ -148,7 +148,6 @@
                             "height": 54,
                             "width": 80
                         },
-                        "state": "start",
                         "status": "",
                         "title": "START",
                         "type": "coa.StartEnd",
@@ -218,8 +217,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 322,
-                        "line_start": 309,
+                        "line_end": 327,
+                        "line_start": 314,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -288,7 +287,6 @@
                             "height": 54,
                             "width": 80
                         },
-                        "state": "end",
                         "status": "",
                         "title": "END",
                         "type": "coa.StartEnd",
@@ -674,46 +672,6 @@
                         "endDirections": [
                             "left"
                         ],
-                        "id": "d5aad2c2-973f-480c-8004-6be4762ce41e",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "49a25586-be34-4421-ab9a-8b034a8497a4",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "9554e811-25c1-4cfc-9906-956f167e4e71",
-                            "port": "in",
-                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "z": 133
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
                         "id": "a8805fbc-a06e-4159-9d5a-6e51995a3837",
                         "router": {
                             "name": "metro"
@@ -738,7 +696,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#637282",
+                                "stroke": "#E6984E",
                                 "transform": "rotate(45 30 70)"
                             },
                             ".inPorts>.port-0>.port-body": {
@@ -782,7 +740,7 @@
                                 "display": "none"
                             },
                             "g.error": {
-                                "opacity": 0
+                                "opacity": 1
                             },
                             "g.error image": {
                                 "xlink:href": "/inc/coa/img/block_icon_warn.svg"
@@ -819,8 +777,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 107,
-                        "line_start": 87,
+                        "line_end": 112,
+                        "line_start": 92,
                         "name": "decision",
                         "notes": "Blue - if hash was found in cache, then grab it\n\nPurple -  else, make a request to virus total and update the cache ",
                         "number": 1,
@@ -921,7 +879,7 @@
                             "width": 82
                         },
                         "state": "decision",
-                        "status": "",
+                        "status": "warn",
                         "type": "coa.Decision",
                         "warn": "",
                         "z": 159
@@ -932,7 +890,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#637282",
+                                "stroke": "#E6984E",
                                 "transform": "rotate(45 30 70)"
                             },
                             ".inPorts>.port-0>.port-body": {
@@ -976,7 +934,7 @@
                                 "display": "none"
                             },
                             "g.error": {
-                                "opacity": 0
+                                "opacity": 1
                             },
                             "g.error image": {
                                 "xlink:href": "/inc/coa/img/block_icon_warn.svg"
@@ -1013,8 +971,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 245,
-                        "line_start": 224,
+                        "line_end": 250,
+                        "line_start": 229,
                         "name": "decision",
                         "notes": "Blue - if the hash is malicious, change severity to high and pin a red card\n\nPurple - set severity to low and pin a blue card",
                         "number": 4,
@@ -1115,7 +1073,7 @@
                             "width": 82
                         },
                         "state": "decision",
-                        "status": "",
+                        "status": "warn",
                         "type": "coa.Decision",
                         "warn": "",
                         "z": 163
@@ -1166,7 +1124,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#637282",
+                                "stroke": "#E6984E",
                                 "transform": "rotate(45 30 70)"
                             },
                             ".inPorts>.port-0>.port-body": {
@@ -1207,10 +1165,10 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "none"
+                                "display": "block"
                             },
                             "g.error": {
-                                "opacity": 0
+                                "opacity": 1
                             },
                             "g.error image": {
                                 "xlink:href": "/inc/coa/img/block_icon_warn.svg"
@@ -1249,8 +1207,8 @@
                             "file_reputation_1"
                         ],
                         "join_start": 216,
-                        "line_end": 188,
-                        "line_start": 168,
+                        "line_end": 193,
+                        "line_start": 173,
                         "name": "decision",
                         "notes": "Blue - if the hash is malicious, change severity to high and pin a red card\n\nPurple - set severity to low and pin a blue card",
                         "number": 3,
@@ -1351,7 +1309,7 @@
                             "width": 82
                         },
                         "state": "decision",
-                        "status": "",
+                        "status": "warn",
                         "type": "coa.Decision",
                         "warn": "",
                         "z": 187
@@ -1515,7 +1473,7 @@
                         "state": "filter",
                         "status": "",
                         "type": "coa.Filter",
-                        "warn": "",
+                        "warn": false,
                         "z": 195
                     },
                     {
@@ -1524,7 +1482,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
+                                "stroke": "#E6984E"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -1568,7 +1526,7 @@
                                 "opacity": 1
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
                             },
                             "g.notes": {
                                 "display": "block"
@@ -1593,7 +1551,7 @@
                         "custom_name": "grab from cache",
                         "description": "",
                         "functionBlock": "custom function",
-                        "has_custom": false,
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
@@ -1605,8 +1563,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 168,
-                        "line_start": 128,
+                        "line_end": 173,
+                        "line_start": 133,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Grabs custom list and pulls the malicious count field for given hash and updates lookup count.",
@@ -1693,7 +1651,7 @@
                             "width": 180
                         },
                         "state": "custom function",
-                        "status": "deprecating",
+                        "status": "warn",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
                         "userGeneratedCode": "\n    success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    if matches.get('matches'):\n        malicious_count = matches.get('matches')[0].get('value')[2]\n        success_2, message_2 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success_1, message_1 = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])\n        \n    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...\n    grab_from_cache__malicious_count = malicious_count\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################",
@@ -1706,7 +1664,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
+                                "stroke": "#E6984E"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -1750,7 +1708,7 @@
                                 "opacity": 1
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
                             },
                             "g.notes": {
                                 "display": "block"
@@ -1775,7 +1733,7 @@
                         "custom_name": "update cache",
                         "description": "",
                         "functionBlock": "custom function",
-                        "has_custom": false,
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
@@ -1787,8 +1745,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 309,
-                        "line_start": 281,
+                        "line_end": 314,
+                        "line_start": 286,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Grabs list and appends a new entry or updates old entry with new data",
@@ -1880,7 +1838,7 @@
                             "width": 180
                         },
                         "state": "custom function",
-                        "status": "deprecating",
+                        "status": "warn",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
                         "userGeneratedCode": "    import datetime\n    \n    success_1, message_1, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    \n    if matches.get('matches'):\n        success_3, message_3 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success, message = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], datetime.datetime.now(), results_item_1_0[0], int(matches.get('matches')[0].get('value')[3]) + 1])\n    else:\n        success_2, message_2 = phantom.add_list(list_name=\"virus_total_cache\", values=[filtered_artifacts_item_1_0[0], datetime.datetime.now(), results_item_1_0[0], 1])# Write your custom code here...\n\n",
@@ -1893,7 +1851,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
+                                "stroke": "#E6984E"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -1937,7 +1895,7 @@
                                 "opacity": 1
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
                             },
                             "g.notes": {
                                 "display": "block"
@@ -1962,7 +1920,7 @@
                         "custom_name": "severity high pin cached",
                         "description": "",
                         "functionBlock": "custom function",
-                        "has_custom": false,
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
@@ -1974,8 +1932,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 206,
-                        "line_start": 188,
+                        "line_end": 211,
+                        "line_start": 193,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to high and pins a red card to the container HUD",
@@ -2062,7 +2020,7 @@
                             "width": 180
                         },
                         "state": "custom function",
-                        "status": "deprecating",
+                        "status": "warn",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
                         "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n",
@@ -2075,7 +2033,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
+                                "stroke": "#E6984E"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -2119,7 +2077,7 @@
                                 "opacity": 1
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
                             },
                             "g.notes": {
                                 "display": "block"
@@ -2144,7 +2102,7 @@
                         "custom_name": "severity high pin live",
                         "description": "",
                         "functionBlock": "custom function",
-                        "has_custom": false,
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
@@ -2156,8 +2114,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 263,
-                        "line_start": 245,
+                        "line_end": 268,
+                        "line_start": 250,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to high and pins a red card to the container HUD",
@@ -2244,7 +2202,7 @@
                             "width": 180
                         },
                         "state": "custom function",
-                        "status": "deprecating",
+                        "status": "warn",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
                         "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n",
@@ -2257,7 +2215,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
+                                "stroke": "#E6984E"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -2301,7 +2259,7 @@
                                 "opacity": 1
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
                             },
                             "g.notes": {
                                 "display": "block"
@@ -2326,7 +2284,7 @@
                         "custom_name": "severity low pin cached",
                         "description": "",
                         "functionBlock": "custom function",
-                        "has_custom": false,
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
@@ -2338,8 +2296,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 224,
-                        "line_start": 206,
+                        "line_end": 229,
+                        "line_start": 211,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to low and pins a blue card to the container HUD",
@@ -2426,7 +2384,7 @@
                             "width": 180
                         },
                         "state": "custom function",
-                        "status": "deprecating",
+                        "status": "warn",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
                         "userGeneratedCode": "\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n",
@@ -2439,7 +2397,7 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
+                                "stroke": "#E6984E"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -2483,7 +2441,7 @@
                                 "opacity": 1
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
                             },
                             "g.notes": {
                                 "display": "block"
@@ -2508,7 +2466,7 @@
                         "custom_name": "severity low pin live",
                         "description": "",
                         "functionBlock": "custom function",
-                        "has_custom": false,
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
@@ -2520,8 +2478,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 281,
-                        "line_start": 263,
+                        "line_end": 286,
+                        "line_start": 268,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to low and pins a blue card to the container HUD",
@@ -2608,7 +2566,7 @@
                             "width": 180
                         },
                         "state": "custom function",
-                        "status": "deprecating",
+                        "status": "warn",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
                         "userGeneratedCode": "\n    phantom.set_severity(container, \"Low\")\n    phantom.pin(container=container, pin_style='blue', data=\"file is known good\", pin_type=\"card\")# Write your custom code here...\n\n",
@@ -3479,7 +3437,7 @@
                             },
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
+                                "stroke": "#E6984E"
                             },
                             ".color-band": {
                                 "fill": "#3C444D"
@@ -3513,11 +3471,17 @@
                             ".title": {
                                 "text": "Investigate"
                             },
+                            "g.approver image": {
+                                "opacity": 1
+                            },
+                            "g.code image": {
+                                "opacity": 1
+                            },
                             "g.delete": {
                                 "display": "none"
                             },
                             "g.error": {
-                                "opacity": 0
+                                "opacity": 1
                             },
                             "g.error image": {
                                 "xlink:href": "/inc/coa/img/block_icon_warn.svg"
@@ -3531,6 +3495,9 @@
                             "g.notes image": {
                                 "opacity": 1,
                                 "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
+                            },
+                            "g.timer image": {
+                                "opacity": 1
                             }
                         },
                         "block_code": "def file_reputation(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('file_reputation() called')\n\n    # collect data for 'file_reputation' call\n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash', 'filtered-data:check_field:condition_1:artifact:*.id'])\n\n    parameters = []\n    \n    # build parameters list for 'file_reputation' call\n    for filtered_artifacts_item_1 in filtered_artifacts_data_1:\n        if filtered_artifacts_item_1[0]:\n            parameters.append({\n                'hash': filtered_artifacts_item_1[0],\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': filtered_artifacts_item_1[1]},\n            })\n\n    phantom.act(action=\"file reputation\", parameters=parameters, assets=['virustotal'], callback=update_cache, name=\"file_reputation\")\n\n    return",
@@ -3558,8 +3525,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 128,
-                        "line_start": 107,
+                        "line_end": 133,
+                        "line_start": 112,
                         "message": "Configuring now",
                         "name": "file reputation",
                         "notes": "file reputation check for given hash",
@@ -3636,10 +3603,10 @@
                             "width": 180
                         },
                         "state": "app_action_assets",
-                        "status": "",
+                        "status": "warn",
                         "title": "Investigate",
                         "type": "coa.Action",
-                        "warn": "",
+                        "warn": false,
                         "z": 208
                     },
                     {
@@ -3702,22 +3669,22 @@
                                 "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
                             }
                         },
-                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    if matched.get('matches'):\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
+                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'hash': [], 'grab':[]}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'] = hash\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'] = True\n            else:\n                output['grab'] = False\n        else:\n            output['grab'] = False# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
                         "connection_name": "",
                         "connection_type": "",
-                        "customCodeEndLineOffset": 7,
+                        "customCodeEndLineOffset": 6,
                         "customCodeStartLine": 11,
                         "custom_callback": "",
-                        "custom_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    if matched.get('matches'):\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
+                        "custom_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'hash': [], 'grab':[]}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'] = hash\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'] = True\n            else:\n                output['grab'] = False\n        else:\n            output['grab'] = False# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
                         "custom_join": "",
                         "custom_name": "check list",
                         "description": "",
                         "functionBlock": "custom function",
-                        "has_custom": false,
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
@@ -3729,7 +3696,7 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 87,
+                        "line_end": 92,
                         "line_start": 32,
                         "message": "Configuring now",
                         "name": "custom function",
@@ -3820,7 +3787,7 @@
                         "status": "deprecating",
                         "title": "custom function",
                         "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "    import datetime\n\n    success, message, matched = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n    if matched.get('matches'):\n        current_time = datetime.datetime.now()\n        seven_days = datetime.timedelta(days=7)\n        seven_days_ago = current_time - seven_days\n        lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n        if lookup_date > seven_days_ago:\n            grab = True\n        else:\n            grab = False\n    else:\n        grab = False# Write your custom code here...\n    \n    check_list__inList = grab\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
+                        "userGeneratedCode": "    import datetime\n    \n    output = {'hash': [], 'grab':[]}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'] = hash\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'] = True\n            else:\n                output['grab'] = False\n        else:\n            output['grab'] = False# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
                         "warn": false,
                         "z": 209
                     }
@@ -3835,7 +3802,7 @@
         "schema": "4",
         "version": "5.1.0.70187"
     },
-    "create_time": "2022-03-04T18:12:14.323066+00:00",
+    "create_time": "2022-03-04T20:53:26.872670+00:00",
     "draft_mode": false,
     "labels": [
         "*"

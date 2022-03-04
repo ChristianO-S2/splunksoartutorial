@@ -25,7 +25,7 @@ def check_field(action=None, success=None, container=None, results=None, handle=
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        check_list(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        cf_splunksoartutorial_checkHashAge_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -42,9 +42,10 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
     import datetime
     
-    output = {'grab': []}
+    output = {'hash': [],'grab': []}
     
     for hash in filtered_artifacts_item_1_0:
+        output['hash'].append(hash)
         success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)
         phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))
         if matched.get('matches'):
@@ -85,11 +86,12 @@ def check_list(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
     ################################################################################
     ################################################################################
+    ################################################################################
     ## Custom Code End
     ################################################################################
 
     phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))
-    filter_2(container=container)
+    decision_1(container=container)
 
     return
 
@@ -311,20 +313,30 @@ def update_cache(action=None, success=None, container=None, results=None, handle
 
     return
 
-def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('filter_2() called')
+def cf_splunksoartutorial_checkHashAge_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('cf_splunksoartutorial_checkHashAge_1() called')
+    
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])
 
-    # collect filtered artifact ids for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        conditions=[
-            ["check_list:custom_function:inList.grab.*", "==", True],
-        ],
-        name="filter_2:condition_1")
+    parameters = []
 
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_1 or matched_results_1:
-        pass
+    filtered_artifacts_data_0_0 = [item[0] for item in filtered_artifacts_data_0]
+
+    parameters.append({
+        'hashList': filtered_artifacts_data_0_0,
+    })
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################    
+
+    # call custom function "splunksoartutorial/checkHashAge", returns the custom_function_run_id
+    phantom.custom_function(custom_function='splunksoartutorial/checkHashAge', parameters=parameters, name='cf_splunksoartutorial_checkHashAge_1')
 
     return
 

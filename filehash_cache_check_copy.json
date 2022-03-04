@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "f85cd8c266e6561de72fd06773c4f5c6528f6913",
+            "hash": "61b8e7248d49296c8c6bcd6d7581b19908fccfc7",
             "joint": {
                 "cells": [
                     {
@@ -217,8 +217,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 344,
-                        "line_start": 331,
+                        "line_end": 356,
+                        "line_start": 343,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -331,46 +331,6 @@
                         },
                         "type": "link",
                         "z": 3
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "c4d57b3f-be2f-4e23-9dbc-1617aadcba5e",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "6db7a88b-1271-4054-9220-85b1b2da171c",
-                            "port": "out-1",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "49a25586-be34-4421-ab9a-8b034a8497a4",
-                            "selector": ".port-body[type=\"input\"]"
-                        },
-                        "type": "link",
-                        "z": 8
                     },
                     {
                         "attrs": {
@@ -697,8 +657,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 250,
-                        "line_start": 229,
+                        "line_end": 252,
+                        "line_start": 231,
                         "name": "decision",
                         "notes": "Blue - if the hash is malicious, change severity to high and pin a red card\n\nPurple - set severity to low and pin a blue card",
                         "number": 4,
@@ -933,8 +893,8 @@
                             "file_reputation_1"
                         ],
                         "join_start": 216,
-                        "line_end": 193,
-                        "line_start": 173,
+                        "line_end": 195,
+                        "line_start": 175,
                         "name": "decision",
                         "notes": "Blue - if the hash is malicious, change severity to high and pin a red card\n\nPurple - set severity to low and pin a blue card",
                         "number": 3,
@@ -1073,7 +1033,7 @@
                                 }
                             },
                             "g.delete": {
-                                "display": "block"
+                                "display": "none"
                             },
                             "g.error": {
                                 "opacity": 0
@@ -1086,7 +1046,7 @@
                                 "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
                             }
                         },
-                        "block_code": "def check_field(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_field() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        conditions=[\n            [\"artifact:*.cef.fileHash\", \"!=\", \"\"],\n        ],\n        name=\"check_field:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        check_list(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)\n\n    return",
+                        "block_code": "def check_field(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_field() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        conditions=[\n            [\"artifact:*.cef.fileHash\", \"!=\", \"\"],\n        ],\n        name=\"check_field:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        cf_splunksoartutorial_checkHashAge_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
@@ -1289,8 +1249,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 314,
-                        "line_start": 286,
+                        "line_end": 316,
+                        "line_start": 288,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Grabs list and appends a new entry or updates old entry with new data",
@@ -1476,8 +1436,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 229,
-                        "line_start": 211,
+                        "line_end": 231,
+                        "line_start": 213,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to low and pins a blue card to the container HUD",
@@ -1658,8 +1618,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 286,
-                        "line_start": 268,
+                        "line_end": 288,
+                        "line_start": 270,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to low and pins a blue card to the container HUD",
@@ -2705,8 +2665,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 133,
-                        "line_start": 112,
+                        "line_end": 135,
+                        "line_start": 114,
                         "message": "Configuring now",
                         "name": "file reputation",
                         "notes": "file reputation check for given hash",
@@ -2876,8 +2836,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 173,
-                        "line_start": 133,
+                        "line_end": 175,
+                        "line_start": 135,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Grabs custom list and pulls the malicious count field for given hash and updates lookup count.",
@@ -2983,370 +2943,6 @@
                                 "fill": "#3C444D"
                             },
                             ".functionBlock": {
-                                "text": "severity high pin cached"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            },
-                            "g.notes image": {
-                                "opacity": 1,
-                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
-                            }
-                        },
-                        "block_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "customCodeEndLineOffset": 4,
-                        "customCodeStartLine": 8,
-                        "custom_callback": "",
-                        "custom_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "severity high pin cached",
-                        "description": "",
-                        "functionBlock": "custom function",
-                        "has_custom": true,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "415d13da-d5fa-485d-b52e-37ee13a0fb9f",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "legacy": true,
-                        "line_end": 211,
-                        "line_start": 193,
-                        "message": "Configuring now",
-                        "name": "custom function",
-                        "notes": "Changes container severity to high and pins a red card to the container HUD",
-                        "number": 3,
-                        "order": 8,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "outputVariables": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": ""
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1280,
-                            "y": -100
-                        },
-                        "previous_function": "",
-                        "previous_name": "severity_high_pin_cached",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "custom function",
-                        "status": "warn",
-                        "title": "custom function",
-                        "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n",
-                        "warn": false,
-                        "z": 220
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".functionBlock": {
-                                "text": "check list"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn_grey.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            },
-                            "g.notes image": {
-                                "opacity": 1,
-                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
-                            }
-                        },
-                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'grab': []}\n    \n    for hash in filtered_artifacts_item_1_0:\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append('True')\n            else:\n                output['grab'].append('False')\n        else:\n            output['grab'].append('False')# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    filter_2(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 11,
-                        "custom_callback": "",
-                        "custom_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'grab': []}\n    \n    for hash in filtered_artifacts_item_1_0:\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append('True')\n            else:\n                output['grab'].append('False')\n        else:\n            output['grab'].append('False')# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "check list",
-                        "description": "",
-                        "functionBlock": "custom function",
-                        "has_custom": true,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "49a25586-be34-4421-ab9a-8b034a8497a4",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "legacy": true,
-                        "line_end": 96,
-                        "line_start": 32,
-                        "message": "Configuring now",
-                        "name": "custom function",
-                        "notes": "Grabs custom list and checks for the hash in list and determines if the data is fresh or not",
-                        "number": 1,
-                        "order": 3,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "outputVariables": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "inList"
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "filtered-data:check_field:condition_1:artifact:*.cef.fileHash"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 400,
-                            "y": 80
-                        },
-                        "previous_function": "",
-                        "previous_name": "check_list",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "custom function",
-                        "status": "deprecating",
-                        "title": "custom function",
-                        "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "    import datetime\n    \n    output = {'grab': []}\n    \n    for hash in filtered_artifacts_item_1_0:\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append('True')\n            else:\n                output['grab'].append('False')\n        else:\n            output['grab'].append('False')# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
-                        "warn": false,
-                        "z": 224
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#E6984E"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".functionBlock": {
                                 "text": "severity high pin live"
                             },
                             ".inPorts>.port-in": {
@@ -3422,8 +3018,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "legacy": true,
-                        "line_end": 268,
-                        "line_start": 250,
+                        "line_end": 270,
+                        "line_start": 252,
                         "message": "Configuring now",
                         "name": "custom function",
                         "notes": "Changes container severity to high and pins a red card to the container HUD",
@@ -3604,8 +3200,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 112,
-                        "line_start": 96,
+                        "line_end": 114,
+                        "line_start": 98,
                         "name": "decision",
                         "notes": "Blue - if hash was found in cache, then grab it\n\nPurple -  else, make a request to virus total and update the cache ",
                         "number": 1,
@@ -3732,7 +3328,7 @@
                         "endDirections": [
                             "left"
                         ],
-                        "id": "82376514-b7de-4c3a-b32c-9de16f3fa2f7",
+                        "id": "68c05233-da58-4563-940d-19ad626b973a",
                         "router": {
                             "name": "metro"
                         },
@@ -3744,8 +3340,9 @@
                             "right"
                         ],
                         "target": {
-                            "id": "29bc550b-4d13-4ad8-9d99-cbff4b984439",
-                            "selector": ".port-body[type=\"input\"]"
+                            "id": "9554e811-25c1-4cfc-9906-956f167e4e71",
+                            "port": "in",
+                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
                         },
                         "type": "link",
                         "z": 227
@@ -3756,87 +3353,109 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773",
-                                "transform": "rotate(45 30 70)"
+                                "stroke": "#E6984E"
                             },
-                            ".inPorts>.port-0>.port-body": {
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".functionBlock": {
+                                "text": "severity high pin cached"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
                                 "port": {
                                     "id": "in",
                                     "type": "in"
                                 }
                             },
-                            ".number": {
-                                "text": 2
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
                             },
-                            ".outPorts>.port-0": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                },
-                                "ref-x": 83,
-                                "ref-y": 40
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
                             },
-                            ".outPorts>.port-0>.port-body": {
+                            ".outPorts>.port-out>.port-body": {
                                 "port": {
-                                    "id": "out-1",
+                                    "id": "out",
                                     "type": "out"
                                 }
+                            },
+                            ".title": {
+                                "text": "custom function"
                             },
                             "g.delete": {
                                 "display": "none"
                             },
                             "g.error": {
-                                "opacity": 0
+                                "opacity": 1
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
                             },
                             "g.notes": {
                                 "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
                             }
                         },
-                        "block_code": "def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('filter_2() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        conditions=[\n            [\"check_list:custom_function:inList.grab.*\", \"==\", True],\n        ],\n        name=\"filter_2:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        pass\n\n    return",
+                        "block_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
                         "connection_name": "",
                         "connection_type": "",
+                        "customCodeEndLineOffset": 4,
+                        "customCodeStartLine": 8,
                         "custom_callback": "",
-                        "custom_code": "",
+                        "custom_code": "def severity_high_pin_cached(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('severity_high_pin_cached() called')\n    \n    input_parameter_0 = \"\"\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    return",
                         "custom_join": "",
-                        "custom_name": "",
+                        "custom_name": "severity high pin cached",
                         "description": "",
-                        "has_custom": false,
+                        "functionBlock": "custom function",
+                        "has_custom": true,
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
-                        "id": "29bc550b-4d13-4ad8-9d99-cbff4b984439",
+                        "id": "415d13da-d5fa-485d-b52e-37ee13a0fb9f",
                         "inPorts": [
                             "in"
                         ],
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 331,
-                        "line_start": 314,
-                        "name": "filter",
-                        "notes": "",
-                        "number": 2,
-                        "order": 14,
+                        "legacy": true,
+                        "line_end": 213,
+                        "line_start": 195,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "Changes container severity to high and pins a red card to the container HUD",
+                        "number": 3,
+                        "order": 8,
                         "outPorts": [
-                            "out-1"
+                            "out"
                         ],
-                        "outputs": [
+                        "outputVariables": [
                             {
-                                "conditions": [
-                                    {
-                                        "comparison": "==",
-                                        "data_type": "",
-                                        "param": "check_list:custom_function:inList.grab.*",
-                                        "value": "True"
-                                    }
-                                ],
-                                "display": "If",
-                                "logic": "and",
-                                "type": "if"
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
                             }
                         ],
                         "ports": {
@@ -3892,21 +3511,479 @@
                             }
                         },
                         "position": {
-                            "x": 540,
-                            "y": 420
+                            "x": 1280,
+                            "y": -100
                         },
                         "previous_function": "",
-                        "previous_name": "filter_2",
+                        "previous_name": "severity_high_pin_cached",
                         "show_number": true,
                         "size": {
-                            "height": 82,
-                            "width": 82
+                            "height": 100,
+                            "width": 180
                         },
-                        "state": "filter",
-                        "status": "",
-                        "type": "coa.Filter",
-                        "warn": "",
+                        "state": "custom function",
+                        "status": "warn",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    phantom.set_severity(container, \"High\")\n    phantom.pin(container=container, pin_style='red', data=\"malicious file found\", pin_type=\"card\")# Write your custom code here...\n\n",
+                        "warn": false,
+                        "z": 228
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#E6984E"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".functionBlock": {
+                                "text": "check list"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 1
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
+                            }
+                        },
+                        "block_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'hash': [],'grab': []}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append('True')\n            else:\n                output['grab'].append('False')\n        else:\n            output['grab'].append('False')# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 11,
+                        "custom_callback": "",
+                        "custom_code": "def check_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('check_list() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    check_list__inList = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n    import datetime\n    \n    output = {'hash': [],'grab': []}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append('True')\n            else:\n                output['grab'].append('False')\n        else:\n            output['grab'].append('False')# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='check_list:inList', value=json.dumps(check_list__inList))\n    decision_1(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "check list",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": true,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "49a25586-be34-4421-ab9a-8b034a8497a4",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "legacy": true,
+                        "line_end": 98,
+                        "line_start": 32,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "Grabs custom list and checks for the hash in list and determines if the data is fresh or not",
+                        "number": 1,
+                        "order": 3,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "inList"
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "filtered-data:check_field:condition_1:artifact:*.cef.fileHash"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 400,
+                            "y": 80
+                        },
+                        "previous_function": "",
+                        "previous_name": "check_list",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "warn",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "    import datetime\n    \n    output = {'hash': [],'grab': []}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append('True')\n            else:\n                output['grab'].append('False')\n        else:\n            output['grab'].append('False')# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
+                        "warn": false,
                         "z": 229
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "d31a6636-b272-4cd0-9cb3-f3111ce4515a",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "6db7a88b-1271-4054-9220-85b1b2da171c",
+                            "port": "out-1",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "dd1ac60f-d5d6-4a39-a0ee-21b7e308415e",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 230
+                    },
+                    {
+                        ".scmName/text": "splunksoartutorial",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {},
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".customFunction": {
+                                "text": "checkHashAge"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".scmName": {
+                                "text": "splunksoartutorial"
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            ".title-info": {
+                                "text": ""
+                            },
+                            "g.branch image": {
+                                "opacity": 1
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cf_splunksoartutorial_checkHashAge_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_splunksoartutorial_checkHashAge_1() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n\n    parameters = []\n\n    filtered_artifacts_data_0_0 = [item[0] for item in filtered_artifacts_data_0]\n\n    parameters.append({\n        'hashList': filtered_artifacts_data_0_0,\n    })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"splunksoartutorial/checkHashAge\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='splunksoartutorial/checkHashAge', parameters=parameters, name='cf_splunksoartutorial_checkHashAge_1')\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "cfDisplayPath": "splunksoartutorial/checkHashAge",
+                        "cfInputs": {
+                            "hashList": {
+                                "collectionType": "filtered_artifacts_data",
+                                "dataPath": "filtered-data:check_field:condition_1:artifact:*.cef.fileHash",
+                                "paramName": "filtered_artifacts_data_0_0",
+                                "type": "list"
+                            }
+                        },
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "currentVersion": true,
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 15,
+                        "customFunction": "splunksoartutorial/checkHashAge",
+                        "customFunctionId": null,
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "draftMode": false,
+                        "existingCF": true,
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "hashList-0": "filtered-data:check_field:condition_1:artifact:*.cef.fileHash",
+                        "id": "dd1ac60f-d5d6-4a39-a0ee-21b7e308415e",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 343,
+                        "line_start": 316,
+                        "message": "Configuring now",
+                        "name": "checkHashAge",
+                        "notes": "",
+                        "number": 1,
+                        "order": 14,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 400,
+                            "y": 380
+                        },
+                        "previous_function": "",
+                        "previous_name": "cf_splunksoartutorial_checkHashAge_1",
+                        "selectedCustomFunction": {
+                            "description": "",
+                            "draftMode": false,
+                            "id": 181,
+                            "inputs": [
+                                {
+                                    "_pretty_custom_function": "checkHashAge",
+                                    "contains_type": [
+                                        "hash"
+                                    ],
+                                    "custom_function": 181,
+                                    "description": "",
+                                    "id": 332,
+                                    "input_type": "list",
+                                    "name": "hashList",
+                                    "placeholder": ""
+                                }
+                            ],
+                            "name": "checkHashAge",
+                            "outputs": [
+                                {
+                                    "_pretty_custom_function": "checkHashAge",
+                                    "contains_type": [],
+                                    "custom_function": 181,
+                                    "data_path": "*.grab",
+                                    "description": "",
+                                    "id": 274
+                                },
+                                {
+                                    "_pretty_custom_function": "checkHashAge",
+                                    "contains_type": [],
+                                    "custom_function": 181,
+                                    "data_path": "*.hash",
+                                    "description": "",
+                                    "id": 275
+                                }
+                            ],
+                            "playbooks": {
+                                "draft_playbooks": [],
+                                "draft_version_id": null,
+                                "playbooks": []
+                            },
+                            "scmId": 4,
+                            "scmName": "splunksoartutorial"
+                        },
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "repo",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.CustomFunctionBlock",
+                        "userGeneratedCode": "    # Write your custom code here...",
+                        "warn": false,
+                        "z": 231
                     }
                 ]
             },
@@ -3919,7 +3996,7 @@
         "schema": "4",
         "version": "5.1.0.70187"
     },
-    "create_time": "2022-03-04T21:34:37.491382+00:00",
+    "create_time": "2022-03-04T21:44:15.237256+00:00",
     "draft_mode": false,
     "labels": [
         "*"

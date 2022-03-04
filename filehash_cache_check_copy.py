@@ -320,11 +320,10 @@ def cf_splunksoartutorial_checkHashAge_1(action=None, success=None, container=No
 
     parameters = []
 
-    filtered_artifacts_data_0_0 = [item[0] for item in filtered_artifacts_data_0]
-
-    parameters.append({
-        'hashList': filtered_artifacts_data_0_0,
-    })
+    for item0 in filtered_artifacts_data_0:
+        parameters.append({
+            'hashList': item0[0],
+        })
     ################################################################################
     ## Custom Code Start
     ################################################################################

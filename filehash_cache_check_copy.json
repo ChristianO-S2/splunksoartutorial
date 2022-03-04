@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "61b8e7248d49296c8c6bcd6d7581b19908fccfc7",
+            "hash": "c08a3a3164e8e276fabc73ade7fe718cbabbe6a2",
             "joint": {
                 "cells": [
                     {
@@ -217,8 +217,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 356,
-                        "line_start": 343,
+                        "line_end": 355,
+                        "line_start": 342,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -2761,188 +2761,6 @@
                                 "fill": "#3C444D"
                             },
                             ".functionBlock": {
-                                "text": "grab from cache"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 1
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            },
-                            "g.notes image": {
-                                "opacity": 1,
-                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
-                            }
-                        },
-                        "block_code": "def grab_from_cache(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('grab_from_cache() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    grab_from_cache__malicious_count = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    if matches.get('matches'):\n        malicious_count = matches.get('matches')[0].get('value')[2]\n        success_2, message_2 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success_1, message_1 = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])\n        \n    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...\n    grab_from_cache__malicious_count = malicious_count\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='grab_from_cache:malicious_count', value=json.dumps(grab_from_cache__malicious_count))\n    decision_3(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": false,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 11,
-                        "custom_callback": "",
-                        "custom_code": "def grab_from_cache(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('grab_from_cache() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    grab_from_cache__malicious_count = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    if matches.get('matches'):\n        malicious_count = matches.get('matches')[0].get('value')[2]\n        success_2, message_2 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success_1, message_1 = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])\n        \n    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...\n    grab_from_cache__malicious_count = malicious_count\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='grab_from_cache:malicious_count', value=json.dumps(grab_from_cache__malicious_count))\n    decision_3(container=container)\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "grab from cache",
-                        "description": "",
-                        "functionBlock": "custom function",
-                        "has_custom": true,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "eba40db1-7787-4f10-b530-a95f51249b6d",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "legacy": true,
-                        "line_end": 175,
-                        "line_start": 135,
-                        "message": "Configuring now",
-                        "name": "custom function",
-                        "notes": "Grabs custom list and pulls the malicious count field for given hash and updates lookup count.",
-                        "number": 2,
-                        "order": 6,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "outputVariables": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "malicious_count"
-                            }
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "filtered-data:check_field:condition_1:artifact:*.cef.fileHash"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 800,
-                            "y": 0
-                        },
-                        "previous_function": "",
-                        "previous_name": "grab_from_cache",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "custom function",
-                        "status": "warn",
-                        "title": "custom function",
-                        "type": "coa.FunctionBlock",
-                        "userGeneratedCode": "\n    success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    if matches.get('matches'):\n        malicious_count = matches.get('matches')[0].get('value')[2]\n        success_2, message_2 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success_1, message_1 = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])\n        \n    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...\n    grab_from_cache__malicious_count = malicious_count\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################",
-                        "warn": false,
-                        "z": 212
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#E6984E"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".functionBlock": {
                                 "text": "severity high pin live"
                             },
                             ".inPorts>.port-in": {
@@ -3530,6 +3348,228 @@
                         "z": 228
                     },
                     {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "d31a6636-b272-4cd0-9cb3-f3111ce4515a",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "6db7a88b-1271-4054-9220-85b1b2da171c",
+                            "port": "out-1",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "dd1ac60f-d5d6-4a39-a0ee-21b7e308415e",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 230
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#E6984E"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".functionBlock": {
+                                "text": "grab from cache"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 1
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_note_dark_on.svg"
+                            }
+                        },
+                        "block_code": "def grab_from_cache(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('grab_from_cache() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    grab_from_cache__malicious_count = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    if matches.get('matches'):\n        malicious_count = matches.get('matches')[0].get('value')[2]\n        success_2, message_2 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success_1, message_1 = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])\n        \n    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...\n    grab_from_cache__malicious_count = malicious_count\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='grab_from_cache:malicious_count', value=json.dumps(grab_from_cache__malicious_count))\n    decision_3(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": false,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 11,
+                        "custom_callback": "",
+                        "custom_code": "def grab_from_cache(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('grab_from_cache() called')\n    \n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.fileHash'])\n    filtered_artifacts_item_1_0 = [item[0] for item in filtered_artifacts_data_1]\n\n    grab_from_cache__malicious_count = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    if matches.get('matches'):\n        malicious_count = matches.get('matches')[0].get('value')[2]\n        success_2, message_2 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success_1, message_1 = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])\n        \n    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...\n    grab_from_cache__malicious_count = malicious_count\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='grab_from_cache:malicious_count', value=json.dumps(grab_from_cache__malicious_count))\n    decision_3(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "grab from cache",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": true,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "eba40db1-7787-4f10-b530-a95f51249b6d",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "legacy": true,
+                        "line_end": 175,
+                        "line_start": 135,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "Grabs custom list and pulls the malicious count field for given hash and updates lookup count.",
+                        "number": 2,
+                        "order": 6,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "malicious_count"
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "filtered-data:check_field:condition_1:artifact:*.cef.fileHash"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 800,
+                            "y": 0
+                        },
+                        "previous_function": "",
+                        "previous_name": "grab_from_cache",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "warn",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    success, message, matches = phantom.get_list(list_name='virus_total_cache', values=filtered_artifacts_item_1_0[0])\n    if matches.get('matches'):\n        malicious_count = matches.get('matches')[0].get('value')[2]\n        success_2, message_2 = phantom.delete_from_list(list_name=\"virus_total_cache\", value=filtered_artifacts_item_1_0[0], remove_row=True)\n        success_1, message_1 = phantom.add_list(list_name=\"virus_total_cache\", values=[matches.get('matches')[0].get('value')[0], matches.get('matches')[0].get('value')[1], matches.get('matches')[0].get('value')[2], int(matches.get('matches')[0].get('value')[3]) + 1])\n        \n    phantom.debug('phantom.get_list results: success: {}, message: {}, malicious_count: {}'.format(success, message, malicious_count))# Write your custom code here...\n    grab_from_cache__malicious_count = malicious_count\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################\n    ####################################################",
+                        "warn": false,
+                        "z": 232
+                    },
+                    {
                         "active": false,
                         "angle": 0,
                         "attrs": {
@@ -3593,7 +3633,7 @@
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
-                        "connected_to_start": true,
+                        "connected_to_start": false,
                         "connection_name": "",
                         "connection_type": "",
                         "customCodeEndLineOffset": 7,
@@ -3709,47 +3749,7 @@
                         "type": "coa.FunctionBlock",
                         "userGeneratedCode": "    import datetime\n    \n    output = {'hash': [],'grab': []}\n    \n    for hash in filtered_artifacts_item_1_0:\n        output['hash'].append(hash)\n        success, message, matched = phantom.get_list(list_name='virus_total_cache', values=hash)\n        phantom.debug('phantom.check_list results: success: {}, message: {}, matched_row_count: {}'.format(success, message, matched))\n        if matched.get('matches'):\n            current_time = datetime.datetime.now()\n            seven_days = datetime.timedelta(days=7)\n            seven_days_ago = current_time - seven_days\n            lookup_date = datetime.datetime.strptime(matched.get('matches')[0].get('value')[1], \"%Y-%m-%d %H:%M:%S.%f\")\n    \n            if lookup_date > seven_days_ago:\n                output['grab'].append('True')\n            else:\n                output['grab'].append('False')\n        else:\n            output['grab'].append('False')# Write your custom code here...\n    \n    check_list__inList = output\n    phantom.debug(output)\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################\n    ################################################################################",
                         "warn": false,
-                        "z": 229
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "d31a6636-b272-4cd0-9cb3-f3111ce4515a",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "6db7a88b-1271-4054-9220-85b1b2da171c",
-                            "port": "out-1",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "dd1ac60f-d5d6-4a39-a0ee-21b7e308415e",
-                            "selector": ".port-body[type=\"input\"]"
-                        },
-                        "type": "link",
-                        "z": 230
+                        "z": 233
                     },
                     {
                         ".scmName/text": "splunksoartutorial",
@@ -3812,11 +3812,14 @@
                             "g.error": {
                                 "opacity": 0
                             },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
                             "g.notes": {
                                 "display": "block"
                             }
                         },
-                        "block_code": "def cf_splunksoartutorial_checkHashAge_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_splunksoartutorial_checkHashAge_1() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n\n    parameters = []\n\n    filtered_artifacts_data_0_0 = [item[0] for item in filtered_artifacts_data_0]\n\n    parameters.append({\n        'hashList': filtered_artifacts_data_0_0,\n    })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"splunksoartutorial/checkHashAge\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='splunksoartutorial/checkHashAge', parameters=parameters, name='cf_splunksoartutorial_checkHashAge_1')\n\n    return",
+                        "block_code": "def cf_splunksoartutorial_checkHashAge_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_splunksoartutorial_checkHashAge_1() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:check_field:condition_1:artifact:*.cef.fileHash'])\n\n    parameters = []\n\n    for item0 in filtered_artifacts_data_0:\n        parameters.append({\n            'hashList': item0[0],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"splunksoartutorial/checkHashAge\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='splunksoartutorial/checkHashAge', parameters=parameters, name='cf_splunksoartutorial_checkHashAge_1')\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -3825,8 +3828,8 @@
                             "hashList": {
                                 "collectionType": "filtered_artifacts_data",
                                 "dataPath": "filtered-data:check_field:condition_1:artifact:*.cef.fileHash",
-                                "paramName": "filtered_artifacts_data_0_0",
-                                "type": "list"
+                                "paramName": "item0[0]",
+                                "type": "item"
                             }
                         },
                         "color": "",
@@ -3835,7 +3838,7 @@
                         "connection_type": "",
                         "currentVersion": true,
                         "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 15,
+                        "customCodeStartLine": 14,
                         "customFunction": "splunksoartutorial/checkHashAge",
                         "customFunctionId": null,
                         "custom_callback": "",
@@ -3859,7 +3862,7 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 343,
+                        "line_end": 342,
                         "line_start": 316,
                         "message": "Configuring now",
                         "name": "checkHashAge",
@@ -3939,8 +3942,8 @@
                                     ],
                                     "custom_function": 181,
                                     "description": "",
-                                    "id": 332,
-                                    "input_type": "list",
+                                    "id": 333,
+                                    "input_type": "item",
                                     "name": "hashList",
                                     "placeholder": ""
                                 }
@@ -3953,7 +3956,7 @@
                                     "custom_function": 181,
                                     "data_path": "*.grab",
                                     "description": "",
-                                    "id": 274
+                                    "id": 276
                                 },
                                 {
                                     "_pretty_custom_function": "checkHashAge",
@@ -3961,13 +3964,24 @@
                                     "custom_function": 181,
                                     "data_path": "*.hash",
                                     "description": "",
-                                    "id": 275
+                                    "id": 277
                                 }
                             ],
                             "playbooks": {
                                 "draft_playbooks": [],
                                 "draft_version_id": null,
-                                "playbooks": []
+                                "playbooks": [
+                                    {
+                                        "active": false,
+                                        "display_path": "splunksoartutorial/filehash_cache_check_copy",
+                                        "draft_mode": false,
+                                        "id": 460,
+                                        "is_modern": false,
+                                        "name": "filehash_cache_check_copy",
+                                        "playbook_type": "automation",
+                                        "viewable": true
+                                    }
+                                ]
                             },
                             "scmId": 4,
                             "scmName": "splunksoartutorial"
@@ -3983,7 +3997,7 @@
                         "type": "coa.CustomFunctionBlock",
                         "userGeneratedCode": "    # Write your custom code here...",
                         "warn": false,
-                        "z": 231
+                        "z": 234
                     }
                 ]
             },
@@ -3996,7 +4010,7 @@
         "schema": "4",
         "version": "5.1.0.70187"
     },
-    "create_time": "2022-03-04T21:44:15.237256+00:00",
+    "create_time": "2022-03-04T21:49:20.279873+00:00",
     "draft_mode": false,
     "labels": [
         "*"

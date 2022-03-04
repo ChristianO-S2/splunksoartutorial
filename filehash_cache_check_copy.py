@@ -318,7 +318,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["check_list:custom_function:inList.*.grab", "==", True],
+            ["check_list:custom_function:inList.grab.*", "==", True],
         ],
         name="filter_2:condition_1")
 

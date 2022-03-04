@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "f3f7e812d555d3d567b7e74160bcb20e167ab9d7",
+            "hash": "f85cd8c266e6561de72fd06773c4f5c6528f6913",
             "joint": {
                 "cells": [
                     {
@@ -3792,7 +3792,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('filter_2() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        conditions=[\n            [\"check_list:custom_function:inList.*.grab\", \"==\", True],\n        ],\n        name=\"filter_2:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        pass\n\n    return",
+                        "block_code": "def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('filter_2() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        conditions=[\n            [\"check_list:custom_function:inList.grab.*\", \"==\", True],\n        ],\n        name=\"filter_2:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        pass\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
@@ -3830,7 +3830,7 @@
                                     {
                                         "comparison": "==",
                                         "data_type": "",
-                                        "param": "check_list:custom_function:inList.*.grab",
+                                        "param": "check_list:custom_function:inList.grab.*",
                                         "value": "True"
                                     }
                                 ],
@@ -3919,7 +3919,7 @@
         "schema": "4",
         "version": "5.1.0.70187"
     },
-    "create_time": "2022-03-04T21:34:11.481971+00:00",
+    "create_time": "2022-03-04T21:34:37.491382+00:00",
     "draft_mode": false,
     "labels": [
         "*"
